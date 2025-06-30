@@ -3,16 +3,15 @@
 <head>
   <title>Redirecting to PWA...</title>
   <script>
-    // クエリパラメータの取得
     const params = new URLSearchParams(window.location.search);
     const token = params.get("token");
     const team = params.get("team");
 
-    // 保存（PWA側で取得できるようにlocalStorageへ保存）
+    // 保存
     if (token) localStorage.setItem("login_token", token);
     if (team) localStorage.setItem("team_id", team);
 
-    // PWAのURLへリダイレクト（ホーム追加されていること前提）
+    // PWAに遷移（重要：?team を保持）
     window.location.href = `https://www.staila.net/version-test/staila_user?team=${team}`;
   </script>
 </head>
